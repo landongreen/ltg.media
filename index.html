@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LTG Media – Commercial Real Estate Video & Marketing</title>
+  <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Header / nav */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+      border-bottom: 1px solid #eee;
+    }
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    nav ul li {
+      font-size: 1rem;
+    }
+
+    /* Hero / intro section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #555;
+    }
+
+    /* Services / What we do */
+    .services {
+      padding: 80px 20px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .services h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-item {
+      background: #fff;
+      padding: 30px;
+      border: 1px solid #eee;
+      transition: transform .3s ease;
+    }
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .service-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    .service-item p {
+      color: #666;
+    }
+
+    /* Portfolio / Projects */
+    .portfolio {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .portfolio h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .portfolio-item img {
+      transition: transform .4s ease;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+    .portfolio-item .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      transform: translateY(100%);
+      transition: transform .4s ease;
+    }
+    .portfolio-item:hover .overlay {
+      transform: translateY(0);
+    }
+
+    /* About / Story section */
+    .about {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about h2 {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+    }
+    .about p {
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    /* Contact / Footer */
+    footer {
+      background: #222;
+      color: #ddd;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    footer .footer-logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    footer p {
+      font-size: 0.9rem;
+      margin: 10px 0;
+    }
+    footer a {
+      color: #ddd;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">LTG Media</div>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>Commercial Real Estate Video & Marketing Agency</h1>
+  <p>We help brokers and property owners tell compelling video-driven stories of their assets, using social-first content, drone footage, location storytelling and professional edit workflows. Let’s make your listings stand out.</p>
+</section>
+
+<section id="services" class="services">
+  <h2>What We Do</h2>
+  <div class="service-grid">
+    <div class="service-item">
+      <h3>Property Overview Videos</h3>
+      <p>High-quality video walkthroughs and drone aerials tailored for commercial real estate listings.</p>
+    </div>
+    <div class="service-item">
+      <h3>Social Media Content</h3>
+      <p>Short-form edits, vertical cuts and content designed to engage social audiences and drive leads.</p>
+    </div>
+    <div class="service-item">
+      <h3>Marketing Campaigns</p>
+      <p>Full service marketing: video, stills, email assets & promotional strategy to lease properties faster.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="portfolio">
+  <h2>Selected Work</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="project1-thumb.jpg" alt="Project 1 overview">
+      <div class="overlay">
+        <h3>Property Name / Client</h3>
+        <p>Year & Role / Brief description</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="project2-thumb.jpg" alt="Project 2 overview">
+      <div class="overlay">
+        <h3>Property Name / Client</h3>
+        <p>Year & Role / Brief description</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="project3-thumb.jpg" alt="Project 3 overview">
+      <div class="overlay">
+        <h3>Property Name / Client</h3>
+        <p>Year & Role / Brief description</p>
+      </div>
+    </div>
+    <!-- add more items as needed -->
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>About LTG Media</h2>
+  <p>Founded by [Your Name], LTG Media is a boutique video production agency specializing in commercial real estate. With over X years of experience, we deliver professional storytelling, drone cinematography, and social-centric content that helps properties lease faster and stand out in a crowded market. We currently support clients in Oklahoma City and beyond, and we’re scaling to serve national clients across the U.S.</p>
+</section>
+
+<footer id="contact">
+  <div class="footer-logo">LTG Media</div>
+  <p>Interested in working together? Drop us a line: <a href="mailto:hello@ltgmedia.com">hello@ltgmedia.com</a></p>
+  <p>© 2025 LTG Media. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
