@@ -796,37 +796,3 @@ footer {
     transform: translateY(0);
   }
 }
-
-/* Subtle periodic logo pulse triggered after initial reveal
-   - Adds a short, non-disruptive upward nudge + glow increase
-   - Applied via JS by toggling the `.logo-pulse` class every 5s */
-.logo.logo-pulse span {
-  animation: logoPulse 800ms ease-in-out forwards;
-}
-
-@keyframes logoPulse {
-  0% {
-    transform: translateY(0);
-    text-shadow:
-      0 0 20px rgba(0, 100, 255, 0.8),
-      0 0 40px rgba(0, 100, 255, 0.6),
-      0 0 60px rgba(0, 100, 255, 0.4),
-      0 0 90px rgba(0, 100, 255, 0.3);
-  }
-  50% {
-    transform: translateY(-6px);
-    text-shadow:
-      0 0 30px rgba(0, 100, 255, 1),
-      0 0 60px rgba(0, 100, 255, 0.8),
-      0 0 90px rgba(0, 100, 255, 0.6),
-      0 0 120px rgba(0, 100, 255, 0.5);
-  }
-  100% {
-    transform: translateY(0);
-    text-shadow:
-      0 0 20px rgba(0, 100, 255, 0.8),
-      0 0 40px rgba(0, 100, 255, 0.6),
-      0 0 60px rgba(0, 100, 255, 0.4),
-      0 0 90px rgba(0, 100, 255, 0.3);
-  }
-}
