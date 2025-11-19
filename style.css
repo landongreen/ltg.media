@@ -41,9 +41,12 @@ body {
 
 .light { background: linear-gradient(135deg, #fff, #ddd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-/* Buttons */
+/* White Buttons */
 .btn-primary, .btn-secondary, .btn-outline {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
   padding: 14px 32px;
   border-radius: 50px;
   font-weight: 600;
@@ -55,72 +58,164 @@ body {
   z-index: 1;
 }
 
-/* ALL BLUE BUTTONS → CLEAN BLUE + PREMIUM GLOW */
+/* ——————————————————————————————— */
+/* LIQUID GLASS BLUE BUTTONS – Subtle & Premium (2025) */
+/* Exact same size & position as before – only the look changes */
+/* ——————————————————————————————— */
 .btn-primary {
-  background: #0064FF;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;                    /* ← identical to your original */
+  font-weight: 600;
+  font-size: inherit;
   color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1.5px solid rgba(0, 120, 255, 0.35);
+  background: linear-gradient(135deg,
+              rgba(0, 100, 255, 0.18),
+              rgba(0, 180, 255, 0.09));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Very subtle outer glow – barely visible but adds depth */
+  /* THE GLOW */
+  box-shadow: 
+    0 0 10px rgba(0, 100, 255, 0.5),
+    0 0 10px rgba(0, 100, 255, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Gentle inner glass highlight */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg,
+              transparent,
+              rgba(255, 255, 255, 0.12),
+              transparent);
+  transition: left 0.8s;
+}
+
+/* Liquid shine sweep on hover */
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Hover – still lifts a bit, but super elegant */
+.btn-primary:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg,
+              rgba(0, 100, 255, 0.28),
+              rgba(0, 200, 255, 0.16));
+  border-color: rgba(0, 160, 255, 0.5);
+  box-shadow: 
+    0 14px 35px rgba(0, 100, 255, 0.18),
+    0 0 30px rgba(0, 140, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Large button (contact section) – same proportions */
+.btn-primary.large {
+  padding: 18px 78px;
+  font-size: 1.2rem;
+}
+
+/* Nav “Get Started” button – stays exactly the same size */
+.nav .btn-primary {
+  padding: 15px 35px;
+  font-size: 0.95rem;
+}
+
+
+
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 14px 32px;
   border-radius: 50px;
   font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.4s ease;
-  position: relative;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
-
-  /* THE GLOW */
-  box-shadow: 
-    0 0 20px rgba(0, 100, 255, 0.5),
-    0 0 40px rgba(0, 100, 255, 0.3),
-    inset 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-/* HOVER → EVEN STRONGER GLOW + LIFT */
-.btn-primary:hover {
-  background: #0055ee;
-  transform: translateY(-4px);
-  box-shadow: 
-    0 0 30px rgba(0, 100, 255, 0.8),
-    0 0 60px rgba(0, 100, 255, 0.5),
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    inset 0 0 20px rgba(255, 255, 255, 0.2);
-}
-
-/* Large button in contact section */
-.btn-primary.large {
-  padding: 18px 48px;
-  font-size: 1.2rem;
-  box-shadow: 
-    0 0 25px rgba(0, 100, 255, 0.6),
-    0 0 50px rgba(0, 100, 255, 0.4);
-}
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(255,255,255,0.2);
-}
-
-.btn-secondary {
-  border: 2px solid rgba(255,255,255,0.3);
   color: #fff;
-  backdrop-filter: blur(10px);
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1.5px solid rgba(255,255,255,0.22);
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 18px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transition: left 0.8s;
+}
+
+.btn-secondary:hover::before { left: 100%; }
 
 .btn-secondary:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: #fff;
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.36);
+  box-shadow: 0 18px 40px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.12);
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
 }
 
 .btn-outline {
-  border: 2px solid #fff;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
   color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1.5px solid rgba(255,255,255,0.28);
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 22px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.04);
+  transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transition: left 0.8s;
+}
+
+.btn-outline:hover::before { left: 100%; }
+
 .btn-outline:hover {
-  background: #fff;
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+  border-color: rgba(255,255,255,0.5);
+  box-shadow: 0 20px 44px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.14);
   color: #000;
 }
 
@@ -164,6 +259,42 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.3s;
+}
+
+/* Glowing left→right underline for specific nav items */
+.nav-links a[href="#services"],
+.nav-links a[href="#pricing"],
+.nav-links a[href="#portfolio"] {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px; /* space for the underline */
+}
+
+.nav-links a[href="#services"]::after,
+.nav-links a[href="#pricing"]::after,
+.nav-links a[href="#portfolio"]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 6px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #0064FF, #7fbbff);
+  transform: scaleX(0);
+  transform-origin: left;
+  box-shadow: 0 0 18px rgba(0,100,255,0.55), 0 0 40px rgba(0,100,255,0.28);
+  transition: transform 0.45s cubic-bezier(0.22, 0.8, 0.22, 1), opacity 0.3s;
+  opacity: 0.95;
+}
+
+.nav-links a[href="#services"]:hover::after,
+.nav-links a[href="#pricing"]:hover::after,
+.nav-links a[href="#portfolio"]:hover::after,
+.nav-links a[href="#services"]:focus::after,
+.nav-links a[href="#pricing"]:focus::after,
+.nav-links a[href="#portfolio"]:focus::after {
+  transform: scaleX(1);
 }
 
 .nav-links a:hover { opacity: 0.7; }
@@ -266,18 +397,6 @@ body {
   transform: scale(1.05);
   border: 2px solid #0064FF;
   position: relative;
-}
-
-.popular-badge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background: #0064FF;
-  color: #000;
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 700;
 }
 
 .card-header h3 { font-size: 1.8rem; margin-bottom: 1rem; }
@@ -407,12 +526,7 @@ footer {
   .nav-links.active { right: 0; }
   .menu-toggle { display: block; z-index: 1001; }
 }/* ==== CUSTOM GET STARTED BUTTON – CHANGE THESE COLORS TO ANYTHING ==== */
-.nav .btn-primary {
-  background: #0064FF;   /* ← Change button background */
-  color: #ffffff;   /* ← Change text color */
-  border: 2px solid transparent; /* keeps size consistent */
-  transition: all 0.4s ease;
-}/* YOUR CUSTOM HERO SUBTITLE – 100% independent control */
+
 .hero-subtitle {
   font-size: 1.5rem;                    /* change size */
   font-weight: 300;                     /* lighter or bolder */
@@ -470,15 +584,7 @@ footer {
   display: inline-block;
   line-height: 1;
 }
-/* THIS MAKES "ELEVATE" IN CONTACT SECTION YOUR COLOR — 100% WORKS */
-.contact-elevate {
-  background: linear-gradient(90deg, #0064FF, #4d9fff) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text;
-  font-weight: 800;
-  display: inline-block;
-}
+
 
 /* If you want solid blue instead of gradient, use this one: */
 /*
@@ -488,38 +594,239 @@ footer {
 }
 */
 /* GLOW FOR "MOST POPULAR" BADGE */
+/* ——————————————————————————————— */
+/* FINAL FIX – Badge no longer gets cut off + perfect liquid glass */
+/* ——————————————————————————————— */
+/* ——————————————————————————————— */
+/* FEATURED CARD → IRRESISTIBLE USING ONLY #0064FF & #4d9fff */
+/* Badge stays perfect liquid-glass */
+/* ——————————————————————————————— */
+.pricing-card.featured {
+  position: relative;
+  overflow: visible !important;
+  padding-top: 20px !important;
+  background: rgba(255,255,255,0.03);
+  border: 3px solid #0064FF !important;          /* your exact secondary blue */
+  border-radius: 24px;
+  transform: scale(1.05);
+  z-index: 1;
+
+  /* Strong, luxurious glow using only your brand palette */
+  box-shadow: 
+    0 0 30px rgba(77, 153, 255, 0.5),           /* #4d9fff glow */
+    0 0 30px rgba(0, 100, 255, 0.3),            /* #0064FF depth */
+    0 30px 60px rgba(0, 100, 255, 0.25),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+
+  transition: all 0.5s cubic-bezier(0.22, 0.8, 0.22, 1);
+}
+
+.pricing-card.featured:hover {
+  transform: translateY(-14px) scale(1.06);
+  border-color: #0064FF !important;              /* shifts to primary blue */
+  box-shadow: 
+    0 0 50px rgba(0, 100, 255, 0.7),             /* intense #0064FF */
+    0 0 70px rgba(77, 153, 255, 0.5),
+    0 30px 90px rgba(0, 100, 255, 0.4);
+}
+
+/* Keep the badge exactly where you want it */
 .popular-badge {
-  background: #0064FF;
-  color: #fff;
+  position: absolute;
+  top: -10px;        /* stays exactly where it was */
+  right: 20px;
+  z-index: 10;
   padding: 8px 20px;
-  border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: #ffffff;
 
-  /* THE GLOW */
-  box-shadow: 
-    0 0 20px rgba(0, 100, 255, 0.7),
-    0 0 40px rgba(0, 100, 255, 0.4);
-  animation: pulse-glow 3s infinite alternate;
+  background: linear-gradient(135deg, rgba(0,100,255,0.28), rgba(0,180,255,0.18));
+  border: 1.5px solid rgba(0,160,255,0.5);
+  border-radius: 50px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,100,255,0.18),
+              inset 0 1px 0 rgba(255,255,255,0.2);
+  transition: all 0.4s ease;
 }
 
-/* GLOW FOR THE BLUE BORDER AROUND LEVEL 2 CARD */
-.pricing-card.featured {
-  border: 3px solid #0064FF !important;
+/* Shine sweep */
+.popular-badge::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: 0.7s;
+}
+.popular-badge:hover::before { left: 100%; }
+.popular-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,100,255,0.28);
+}
+/* ────────────────────────────────────────────────────────────── */
+/* PREMIUM BLUE GLOW FOR "ELEVATE" TEXT — same as buttons        */
+/* ────────────────────────────────────────────────────────────── */
+.highlight,
+.contact-elevate {
   position: relative;
-  z-index: 1;
+  background: linear-gradient(180deg, #0064FF, #7fbbff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  font-weight: 800;
+  display: inline-block;
 
-  /* MAIN GLOW AROUND THE CARD */
-  box-shadow: 
-    0 0 30px rgba(0, 100, 255, 0.6),
-    0 0 60px rgba(0, 100, 255, 0.3);
-  transform: scale(1.05);
+  /* Exact same blue glow as your buttons */
+  text-shadow: 
+    0 0 20px rgba(0, 100, 255, 0.8),
+    0 0 40px rgba(0, 100, 255, 0.6),
+    0 0 60px rgba(0, 100, 255, 0.4),
+    0 0 90px rgba(0, 100, 255, 0.3);
+
+  transition: all 0.5s ease;
 }
 
-/* Optional: subtle pulsing animation (looks insane) */
-@keyframes pulse-glow {
-  0%   { box-shadow: 0 0 20px rgba(0, 100, 255, 0.7), 0 0 40px rgba(0, 100, 255, 0.4); }
-  100% { box-shadow: 0 0 30px rgba(0, 100, 255, 0.9), 0 0 70px rgba(0, 100, 255, 0.5); }
+.highlight:hover,
+.contact-elevate:hover {
+  text-shadow: 
+    0 0 30px rgba(0, 100, 255, 1),
+    0 0 60px rgba(0, 100, 255, 0.8),
+    0 0 90px rgba(0, 100, 255, 0.6),
+    0 0 120px rgba(0, 100, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Optional: subtle breathing glow (looks insane – highly recommended) */
+@keyframes elevateGlow {
+  from {
+    text-shadow: 
+      0 0 20px rgba(0, 100, 255, 0.7),
+      0 0 40px rgba(0, 100, 255, 0.5),
+      0 0 60px rgba(0, 100, 255, 0.3);
+  }
+  to {
+    text-shadow: 
+      0 0 35px rgba(0, 100, 255, 1),
+      0 0 70px rgba(0, 100, 255, 0.7),
+      0 0 100px rgba(0, 100, 255, 0.5);
+  }
+}
+
+.highlight,
+.contact-elevate {
+  animation: elevateGlow 4s ease-in-out infinite alternate;
+}
+/* ——————————————————————————————— */
+/* FINAL LTG MEDIA LOGO – GRADIENT + GLOW + LETTER REVEAL */
+/* Combines Option 3 + Option 8 perfectly, no squish */
+/* ——————————————————————————————— */
+.logo {
+  line-height: 1 !important;           /* ← fixes squish while keeping nav tight */
+  padding: 12px 0;                     /* maintains exact nav height */
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo span {
+  font-size: 2.1rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+
+  /* Option 3: Gorgeous blue-to-cyan gradient */
+  background: linear-gradient(-180deg, #0064FF, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* Option 3: Strong permanent glow */
+  text-shadow:
+    0 0 20px rgba(0, 100, 255, 0.8),
+    0 0 40px rgba(0, 100, 255, 0.5),
+    0 0 80px rgba(0, 100, 255, 0.3);
+
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(35px);
+
+  /* Option 8: Cinematic letter reveal */
+  animation: logoLetterUp 1.4s cubic-bezier(0.22, 0.8, 0.2, 1) forwards;
+}
+
+/* Elegant gap between LTG and Media */
+.logo-gap {
+  width: 10px;                 /* ← adjust this number to taste */
+  display: inline-block;
+}
+
+/* Staggered timing – feels like a movie intro */
+.logo span:nth-child(1)  { animation-delay: 0.1s; }
+.logo span:nth-child(2)  { animation-delay: 0.2s; }
+.logo span:nth-child(3)  { animation-delay: 0.3s; }
+.logo span:nth-child(4)  { animation-delay: 0.4s; }
+.logo span:nth-child(5)  { animation-delay: 0.5s; }
+.logo span:nth-child(6)  { animation-delay: 0.6s; }
+.logo span:nth-child(7)  { animation-delay: 0.7s; }
+.logo span:nth-child(8)  { animation-delay: 0.8s; }
+.logo span:nth-child(9)  { animation-delay: 0.9s; }
+
+/* Hover = explosive glow */
+.logo:hover span {
+  text-shadow:
+    0 0 40px rgba(0, 100, 255, 1),
+    0 0 80px rgba(0, 100, 255, 0.9),
+    0 0 120px rgba(0, 100, 255, 0.7);
+  transform: translateY(-6px);
+  transition: all 0.6s ease;
+}/* Adjust only the spacing between L, T, G */
+.logo span:nth-child(1),  /* L */
+.logo span:nth-child(2),  /* T */
+.logo span:nth-child(3) { /* G */
+  margin-right: -1px;     /* ← change this number */
+}
+
+@keyframes logoLetterUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle periodic logo pulse triggered after initial reveal
+   - Adds a short, non-disruptive upward nudge + glow increase
+   - Applied via JS by toggling the `.logo-pulse` class every 5s */
+.logo.logo-pulse span {
+  animation: logoPulse 800ms ease-in-out forwards;
+}
+
+@keyframes logoPulse {
+  0% {
+    transform: translateY(0);
+    text-shadow:
+      0 0 20px rgba(0, 100, 255, 0.8),
+      0 0 40px rgba(0, 100, 255, 0.6),
+      0 0 60px rgba(0, 100, 255, 0.4),
+      0 0 90px rgba(0, 100, 255, 0.3);
+  }
+  50% {
+    transform: translateY(-6px);
+    text-shadow:
+      0 0 30px rgba(0, 100, 255, 1),
+      0 0 60px rgba(0, 100, 255, 0.8),
+      0 0 90px rgba(0, 100, 255, 0.6),
+      0 0 120px rgba(0, 100, 255, 0.5);
+  }
+  100% {
+    transform: translateY(0);
+    text-shadow:
+      0 0 20px rgba(0, 100, 255, 0.8),
+      0 0 40px rgba(0, 100, 255, 0.6),
+      0 0 60px rgba(0, 100, 255, 0.4),
+      0 0 90px rgba(0, 100, 255, 0.3);
+  }
 }
