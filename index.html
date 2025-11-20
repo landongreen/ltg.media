@@ -125,20 +125,38 @@
   </section>
 
   <!-- Portfolio Placeholder -->
-  <section id="portfolio" class="section parallax">
-    <div class="container">
-      <h2 class="section-title light">Our Work</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item video-placeholder" data-video="1"></div>
-        <div class="portfolio-item video-placeholder" data-video="2"></div>
-        <div class="portfolio-item video-placeholder" data-video="3"></div>
-        <div class="portfolio-item video-placeholder" data-video="4"></div>
+  <!-- Portfolio – Vertical 1080×1920 Reels Side-by-Side -->
+<section id="portfolio" class="section parallax">
+  <div class="container">
+    <h2 class="section-title light">Our Work</h2>
+
+    <div class="portfolio-grid-vertical">
+      <!-- REEL 1 -->
+      <div class="portfolio-item-vertical">
+        <video class="portfolio-video" poster="/videos/video-1-poster.jpg" src="/videos/video-1.mp4" preload="none" playsinline muted></video>
+        <div class="play-button"></div>
       </div>
-      <div class="portfolio-cta">
-        <a href="#contact" class="btn-secondary">See Full Portfolio →</a>
+
+      <!-- REEL 2 -->
+      <div class="portfolio-item-vertical">
+        <video class="portfolio-video" poster="/videos/video-2-poster.jpg" src="/videos/video-2.mp4" preload="none" playsinline muted></video>
+        <div class="play-button"></div>
       </div>
+
+      <!-- REEL 3 -->
+      <div class="portfolio-item-vertical">
+        <video class="portfolio-video" poster="/videos/video-3-poster.jpg" src="/videos/video-3.mp4" preload="none" playsinline muted></video>
+        <div class="play-button"></div>
+      </div>
+
+      <!-- Just keep copying the block above for more reels -->
     </div>
-  </section>
+
+    <div class="portfolio-cta">
+      <a href="#contact" class="btn-secondary">See Full Portfolio</a>
+    </div>
+  </div>
+</section>
 
 <!-- Contact -->
 <section id="contact" class="section contact">

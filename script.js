@@ -1,4 +1,4 @@
-// Mobile menu toggle only
+// Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -6,14 +6,14 @@ menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
-// Close mobile menu when clicking a link
+// Close menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('active');
   });
 });
 
-// Optional: Slightly shrink nav on scroll (premium feel) - still visible
+// Optional: shrink nav on scroll (you already have this
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('.nav');
   if (window.scrollY > 50) {
@@ -23,7 +23,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Subtle parallax effect on portfolio section
+// Subtle parallax on .parallax section
 window.addEventListener('scroll', () => {
   const parallax = document.querySelector('.parallax');
   if (parallax) {
@@ -32,8 +32,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Periodic logo pulse: after the initial LTG letter-reveal animation finishes,
-// trigger a subtle pulse every 5 seconds.
+// Logo pulse after letter reveal (your beautiful code – untouched)
 (function() {
   const logo = document.querySelector('.logo');
   if (!logo) return;
@@ -44,15 +43,37 @@ window.addEventListener('scroll', () => {
   const startPulseCycle = () => {
     const pulse = () => {
       logo.classList.add('logo-pulse');
-      // remove class after animation duration (slightly longer than 800ms to be safe)
       setTimeout(() => logo.classList.remove('logo-pulse'), 900);
     };
-
-    // first pulse 5s after initial reveal, then every 5s
     setTimeout(pulse, 5000);
     setInterval(pulse, 5000);
   };
 
-  // Wait for the last span's reveal animation to finish, then start the cycle
   lastSpan.addEventListener('animationend', startPulseCycle, { once: true });
 })();
+
+// =======================================================
+// UPDATED PORTFOLIO VIDEO PLAYER – NOW WORKS WITH VERTICAL REELS
+// =======================================================
+document.querySelectorAll('.portfolio-item-vertical').forEach(item => {
+  const video = item.querySelector('video');
+  const playBtn = item.querySelector('.play-button');
+
+  item.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      item.classList.add('playing');
+      video.controls = true;           // shows native controls after play
+    } else {
+      video.pause();
+      video.controls = false;
+      item.classList.remove('playing');
+    }
+  });
+
+  // Clean up when video ends
+  video.addEventListener('ended', () => {
+    item.classList.remove('playing');
+    video.controls = false;
+  });
+});
