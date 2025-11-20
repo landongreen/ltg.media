@@ -891,3 +891,12 @@ footer {
     max-height: 720px;
   }
 }
+.portfolio-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+  /* Forces the poster image to show instantly */
+  background-size: cover;
+  background-position: center;
+}
