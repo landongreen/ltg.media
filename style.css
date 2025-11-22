@@ -318,7 +318,7 @@ body {
   align-items: center;
   text-align: center;
   position: relative;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2560') center/cover no-repeat;
+  background: linear-gradient(#0c0c0c, rgba(0, 153, 255, 0.089)), url('https://images.unsplash.cm/photo-1497366216548-37526070297c?q=80&w=2560') center/cover no-repeat;
 }
 
 .hero-content {
@@ -425,7 +425,7 @@ body {
 
 /* Parallax Portfolio */
 .parallax {
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2573') center/cover fixed;
+  background: linear-gradient(rgba(15, 15, 15,0.877), rgba(15, 15, 15, 0.877)), url('https://images.unsplash.cm/photo-1560518883-ce09059eeffa?q=80&w=2573') center/cover fixed;
   min-height: 100vh;
   display: flex;
   align-items: center;
