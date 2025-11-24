@@ -85,6 +85,9 @@ document.querySelectorAll('.portfolio-item-vertical').forEach(item => {
     const dp = item.dataset.poster;
     if (dp) {
       item.style.backgroundImage = `url(${dp})`;
+      // ensure inline <img> thumb has a src (in case HTML didn't include it)
+      const img = item.querySelector('.video-thumb');
+      if (img && !img.getAttribute('src')) img.src = dp;
     } else {
       // fallback: use inner video's poster attribute if present
       const v = item.querySelector('video');
@@ -94,12 +97,16 @@ document.querySelectorAll('.portfolio-item-vertical').forEach(item => {
     // Ensure background is hidden when playing (in addition to the CSS rule)
     const vid = item.querySelector('video');
     if (vid) {
-      vid.addEventListener('play', () => { item.style.backgroundImage = 'none'; });
+      vid.addEventListener('play', () => {
+        item.style.backgroundImage = 'none';
+        const img = item.querySelector('.video-thumb'); if (img) { img.style.opacity = '0'; img.style.visibility = 'hidden'; }
+      });
       vid.addEventListener('pause', () => {
-        // only restore poster if video ended or paused at start
+        // only restore poster if video paused near the start
         if (vid.currentTime < 0.5) {
           const dp2 = item.dataset.poster || vid.getAttribute('poster');
           if (dp2) item.style.backgroundImage = `url(${dp2})`;
+          const img = item.querySelector('.video-thumb'); if (img) { img.style.opacity = '1'; img.style.visibility = 'visible'; }
         }
       });
     }

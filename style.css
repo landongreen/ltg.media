@@ -799,6 +799,25 @@ footer {
   object-fit: contain;              /* shows full vertical video, no cropping */
   background: #000;
 }
+
+/* Inline image fallback — sits behind the play button and covers the container */
+.video-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0; /* behind play button (z-index 2) */
+  pointer-events: none;
+  filter: brightness(0.95);
+}
+
+/* When playing, hide the inline thumbnail */
+.portfolio-item-vertical.playing .video-thumb {
+  opacity: 0;
+  visibility: hidden;
+}
 /* ——————————————————— */
 /* LIQUID GLASS PLAY BUTTON – MATCHES YOUR .btn-primary EXACTLY */
 /* ——————————————————— */
