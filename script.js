@@ -77,3 +77,31 @@ document.querySelectorAll('.portfolio-item-vertical').forEach(item => {
     video.controls = false;
   });
 });
+
+// Apply data-poster fallback: set container background from `data-poster` so
+// a thumbnail appears even when the <video> poster isn't loaded on some hosts.
+(function() {
+  document.querySelectorAll('.portfolio-item-vertical').forEach(item => {
+    const dp = item.dataset.poster;
+    if (dp) {
+      item.style.backgroundImage = `url(${dp})`;
+    } else {
+      // fallback: use inner video's poster attribute if present
+      const v = item.querySelector('video');
+      if (v && v.getAttribute('poster')) item.style.backgroundImage = `url(${v.getAttribute('poster')})`;
+    }
+
+    // Ensure background is hidden when playing (in addition to the CSS rule)
+    const vid = item.querySelector('video');
+    if (vid) {
+      vid.addEventListener('play', () => { item.style.backgroundImage = 'none'; });
+      vid.addEventListener('pause', () => {
+        // only restore poster if video ended or paused at start
+        if (vid.currentTime < 0.5) {
+          const dp2 = item.dataset.poster || vid.getAttribute('poster');
+          if (dp2) item.style.backgroundImage = `url(${dp2})`;
+        }
+      });
+    }
+  });
+})();

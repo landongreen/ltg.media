@@ -780,6 +780,19 @@ footer {
   transition: all 0.5s cubic-bezier(0.22, 0.8, 0.22, 1);
 }
 
+/* If a poster is provided via data-poster, use it as the container background
+   This guarantees a visible thumbnail even if the <video> poster attribute fails */
+.portfolio-item-vertical[data-poster] {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Hide container background once video is playing to avoid double visuals */
+.portfolio-item-vertical.playing {
+  background-image: none !important;
+}
+
 .portfolio-video {
   width: 100%;
   height: 100%;
